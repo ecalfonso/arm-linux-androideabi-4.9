@@ -1797,10 +1797,11 @@ interpolation in Toom multiplication.
 
    Marco Bodrato helped implement the new Toom multiply code for GMP 4.3
 and implemented most of the new Toom multiply and squaring code for 5.0.
-He is the main author of the current mpn_mulmod_bnm1 and mpn_mullo_n.
-Marco also wrote the functions mpn_invert and mpn_invertappr.  He is the
-author of the current combinatorial functions: binomial, factorial,
-multifactorial, primorial.
+He is the main author of the current mpn_mulmod_bnm1, mpn_mullo_n, and
+mpn_sqrlo.  Marco also wrote the functions mpn_invert and
+mpn_invertappr, and improved the speed of integer root extraction.  He
+is the author of the current combinatorial functions: binomial,
+factorial, multifactorial, primorial.
 
    David Harvey suggested the internal function 'mpn_bdiv_dbm1',
 implementing division relevant to Toom multiplication.  He also worked
@@ -2689,7 +2690,7 @@ Concept Index
                                                               (line  27)
 * Float rounding functions:              Miscellaneous Float Functions.
                                                               (line   9)
-* Float sign tests:                      Float Comparison.    (line  33)
+* Float sign tests:                      Float Comparison.    (line  34)
 * Floating point mode:                   Notes for Particular Systems.
                                                               (line  34)
 * Floating-point functions:              Floating-point Functions.
@@ -3022,7 +3023,7 @@ Concept Index
                                                               (line   6)
 * Rational numerator and denominator:    Applying Integer Functions.
                                                               (line   6)
-* Rational sign tests:                   Comparing Rationals. (line  27)
+* Rational sign tests:                   Comparing Rationals. (line  28)
 * Raw output internals:                  Raw Output Internals.
                                                               (line   6)
 * Reallocations:                         Efficiency.          (line  30)
@@ -3057,8 +3058,8 @@ Concept Index
 * Shared library versioning:             Notes for Package Builds.
                                                               (line   9)
 * Sign tests:                            Integer Comparisons. (line  28)
-* Sign tests <1>:                        Comparing Rationals. (line  27)
-* Sign tests <2>:                        Float Comparison.    (line  33)
+* Sign tests <1>:                        Comparing Rationals. (line  28)
+* Sign tests <2>:                        Float Comparison.    (line  34)
 * Size in digits:                        Miscellaneous Integer Functions.
                                                               (line  23)
 * Small operands:                        Efficiency.          (line   7)
@@ -3341,13 +3342,14 @@ Function and Type Index
 * mpf_clear:                             Initializing Floats. (line  36)
 * mpf_clears:                            Initializing Floats. (line  40)
 * mpf_cmp:                               Float Comparison.    (line   6)
-* mpf_cmp_d:                             Float Comparison.    (line   7)
-* mpf_cmp_si:                            Float Comparison.    (line   9)
-* mpf_cmp_ui:                            Float Comparison.    (line   8)
+* mpf_cmp_d:                             Float Comparison.    (line   8)
+* mpf_cmp_si:                            Float Comparison.    (line  10)
+* mpf_cmp_ui:                            Float Comparison.    (line   9)
+* mpf_cmp_z:                             Float Comparison.    (line   7)
 * mpf_div:                               Float Arithmetic.    (line  28)
 * mpf_div_2exp:                          Float Arithmetic.    (line  53)
 * mpf_div_ui:                            Float Arithmetic.    (line  31)
-* mpf_eq:                                Float Comparison.    (line  16)
+* mpf_eq:                                Float Comparison.    (line  17)
 * mpf_fits_sint_p:                       Miscellaneous Float Functions.
                                                               (line  19)
 * mpf_fits_slong_p:                      Miscellaneous Float Functions.
@@ -3393,7 +3395,7 @@ Function and Type Index
 * mpf_pow_ui:                            Float Arithmetic.    (line  39)
 * mpf_random2:                           Miscellaneous Float Functions.
                                                               (line  35)
-* mpf_reldiff:                           Float Comparison.    (line  27)
+* mpf_reldiff:                           Float Comparison.    (line  28)
 * mpf_set:                               Assigning Floats.    (line   9)
 * mpf_set_d:                             Assigning Floats.    (line  12)
 * mpf_set_default_prec:                  Initializing Floats. (line   6)
@@ -3404,7 +3406,7 @@ Function and Type Index
 * mpf_set_str:                           Assigning Floats.    (line  17)
 * mpf_set_ui:                            Assigning Floats.    (line  10)
 * mpf_set_z:                             Assigning Floats.    (line  13)
-* mpf_sgn:                               Float Comparison.    (line  32)
+* mpf_sgn:                               Float Comparison.    (line  33)
 * mpf_sqrt:                              Float Arithmetic.    (line  35)
 * mpf_sqrt_ui:                           Float Arithmetic.    (line  36)
 * mpf_sub:                               Float Arithmetic.    (line  11)
@@ -3531,13 +3533,14 @@ Function and Type Index
 * mpq_clears:                            Initializing Rationals.
                                                               (line  19)
 * mpq_cmp:                               Comparing Rationals. (line   6)
-* mpq_cmp_si:                            Comparing Rationals. (line  15)
-* mpq_cmp_ui:                            Comparing Rationals. (line  13)
+* mpq_cmp_si:                            Comparing Rationals. (line  16)
+* mpq_cmp_ui:                            Comparing Rationals. (line  14)
+* mpq_cmp_z:                             Comparing Rationals. (line   7)
 * mpq_denref:                            Applying Integer Functions.
                                                               (line  16)
 * mpq_div:                               Rational Arithmetic. (line  22)
 * mpq_div_2exp:                          Rational Arithmetic. (line  26)
-* mpq_equal:                             Comparing Rationals. (line  32)
+* mpq_equal:                             Comparing Rationals. (line  33)
 * mpq_get_d:                             Rational Conversions.
                                                               (line   6)
 * mpq_get_den:                           Applying Integer Functions.
@@ -3576,7 +3579,7 @@ Function and Type Index
                                                               (line  27)
 * mpq_set_z:                             Initializing Rationals.
                                                               (line  24)
-* mpq_sgn:                               Comparing Rationals. (line  26)
+* mpq_sgn:                               Comparing Rationals. (line  27)
 * mpq_sub:                               Rational Arithmetic. (line  10)
 * mpq_swap:                              Initializing Rationals.
                                                               (line  54)

@@ -3416,6 +3416,7 @@ File: gmp.info,  Node: Comparing Rationals,  Next: Applying Integer Functions,  
 ========================
 
  -- Function: int mpq_cmp (const mpq_t OP1, const mpq_t OP2)
+ -- Function: int mpq_cmp_z (const mpq_t OP1, const mpz_t OP2)
      Compare OP1 and OP2.  Return a positive value if OP1 > OP2, zero if
      OP1 = OP2, and a negative value if OP1 < OP2.
 
@@ -3912,6 +3913,7 @@ File: gmp.info,  Node: Float Comparison,  Next: I/O of Floats,  Prev: Float Arit
 ========================
 
  -- Function: int mpf_cmp (const mpf_t OP1, const mpf_t OP2)
+ -- Function: int mpf_cmp_z (const mpf_t OP1, const mpz_t OP2)
  -- Function: int mpf_cmp_d (const mpf_t OP1, double OP2)
  -- Function: int mpf_cmp_ui (const mpf_t OP1, unsigned long int OP2)
  -- Function: int mpf_cmp_si (const mpf_t OP1, signed long int OP2)
